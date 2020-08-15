@@ -1,66 +1,36 @@
-const audioCtx = new AudioContext();
+//var mediaElement = document.querySelector('audio');
+var source = audioContext.createMediaElementSource(player);
 
-//Create audio source
-//Here, we use an audio file, but this could also be e.g. microphone input
-const audioEle = new Audio();
-audioEle.crossOrigin = 'anonymous';
-//audioEle.src = '04 - The Maids of Michelstown.mp3';//insert file name here
-//audioEle.src = "https://edge.audioxi.com/98";
-audioEle.src = webradio.play_station;
-audioEle.autoplay = true;
-audioEle.preload = 'auto';
+var highShelf = audioContext.createBiquadFilter();
+var lowShelf = audioContext.createBiquadFilter();
+var highPass = audioContext.createBiquadFilter();
+var lowPass = audioContext.createBiquadFilter();
 
-const audioSourceNode = audioCtx.createMediaElementSource(audioEle);
+source.connect(highShelf);
+highShelf.connect(lowShelf);
+lowShelf.connect(highPass);
+highPass.connect(lowPass);
+lowPass.connect(audioContext.destination);
 
-//Create analyser node
-const analyserNode = audioCtx.createAnalyser();
-//analyserNode.fftSize = 256;
-analyserNode.fftSize = 1024;
+highShelf.type = "highshelf";
+highShelf.frequency.value = 4700;
+highShelf.gain.value = 50;
 
-const bufferLength = analyserNode.frequencyBinCount;
-const dataArray = new Uint8Array(bufferLength);
+lowShelf.type = "lowshelf";
+lowShelf.frequency.value = 35;
+lowShelf.gain.value = 50;
 
-//Set up audio node network
-audioSourceNode.connect(analyserNode);
-analyserNode.connect(audioCtx.destination);
+highPass.type = "highpass";
+highPass.frequency.value = 800;
+highPass.Q.value = 0.7;
 
-//Create 2D canvas
-const canvas = document.createElement('canvas');
-canvas.style.position = 'absolute';
-canvas.style.top = 0;
-canvas.style.left = 0;
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-document.body.appendChild(canvas);
-const canvasCtx = canvas.getContext('2d');
-canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
+lowPass.type = "lowpass";
+lowPass.frequency.value = 880;
+lowPass.Q.value = 0.7;
 
-
-function draw() {
-  //Schedule next redraw
-  requestAnimationFrame(draw);
-
-  //Get spectrum data
-  //analyserNode.getFloatFrequencyData(dataArray);
-  analyserNode.getByteFrequencyData(dataArray);
-  //Draw black background
-  canvasCtx.fillStyle = 'rgba(96, 173, 135, 0.5)';
-  canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
-
-  //Draw spectrum
-  const barWidth = (canvas.width / bufferLength) * 2.5;
-  let posX = 0;
-  for (let i = 0; i < bufferLength; i++) {
-    const barHeight = (dataArray[i] + 140) * 2;
-    canvasCtx.fillStyle = 'rgba(' + Math.floor(barHeight + 100) + ', 83, 51, 0.5)';
-    canvasCtx.fillRect(posX, canvas.height - barHeight / 2, barWidth, barHeight / 2);
-    posX += barWidth + 1;
-  }
-};
-
-draw();
-
-$("#message").ajaxError(function (event, request, settings) {
-  $(this).show();
-  $(this).append("<li>Error requesting page " + settings.url + "</li>");
+var ranges = document.querySelectorAll('input[type=range]');
+ranges.forEach(function(range){
+  range.addEventListener('input', function() {
+    window[this.dataset.filter][this.dataset.param].value = this.value;
+  });
 });
