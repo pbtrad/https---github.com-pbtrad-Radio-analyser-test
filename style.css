@@ -1,0 +1,176 @@
+
+html body {
+    width: 100%;
+    margin:0;
+    padding:0;
+
+}
+
+body {
+    background-color: #383838;
+}
+
+
+
+.logo {
+    text-align: center;
+    color: #ba8baf;
+    
+}
+
+span {
+    font-size: 0.5em;
+    display: inline-block;
+    color: rgba(128, 128, 128, 0.5);
+    margin: 2px;
+}
+
+.player {
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+    width: 25em;
+}
+
+.station {
+    text-align: center;
+    color: #7cafc2;
+}
+
+.channels {
+    text-align: center;
+   width: 50%;
+   margin-left: 24.5%;
+}
+
+ul {
+    list-style: none;
+    
+}
+li {
+    cursor: pointer;
+}
+footer {
+    color: #484848;
+}
+    
+
+.category {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #a1b56c;
+}
+
+.app {
+    position: relative;
+    margin: 10px;
+}
+
+.app > div {
+    width: 0.1px;
+    background-color: orange;
+    display: inline-block;
+    outline-style: solid;
+    outline-color: orange;
+    outline-width: 0.1px;
+    margin-left: 8px;
+}
+
+.bin-count {
+    position: absolute;
+    left: 30%;
+    float: right;
+    font-size: 2em;
+    height: 50px;
+}
+
+/*---Spectrum analyser--*/
+canvas {
+    height: 10rem;
+    width: 100%;
+    
+}
+
+/*-------Graphic Eq---*/
+
+.transport{
+    width:75px;
+    height:75px;
+    margin:0 auto;
+    margin-bottom:100px;
+   
+
+}
+
+.transport-icon{
+    margin:0 auto;
+    background-color:green;
+    height:100%;
+    width:100%;
+}
+
+
+.graphic-eq-box {
+    position:relative;
+    top: 30rem;
+    align-items: center;
+    margin: 0 auto;
+    width:400px;
+    border: 0px solid gray;
+}
+
+.graphic-eq{
+    margin:0 auto;
+    width:375px;
+    top:100px;
+    align-items: center;
+}
+
+
+.eq {
+    display: inline-block;
+    padding: 0.9em;
+    border: 2px solid orange;
+    align-items: center;
+}
+
+p{
+    color:rgba(60, 75, 111, 0.94);
+}
+
+.eq-band{
+    display:inline-block;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    width: 100%;
+    margin-left: 4px;
+}
+
+
+.ui-widget-header{
+    background-color: rgba(29, 32, 121, 0.36)
+}
+
+.app {
+    position: relative;
+    margin: 10px;
+}
+
+.app > div {
+    width: 0.1px;
+    background-color: orange;
+    display: inline-block;
+    outline-style: solid;
+    outline-color: orange;
+    outline-width: 0.1px;
+    margin-left: 8px;
+}
+
+.bin-count {
+    position: absolute;
+    left: 30%;
+    float: right;
+    font-size: 2em;
+    height: 50px;
+}

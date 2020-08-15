@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="user-scalable=no">
+      <title>Radio</title>
+      <link rel="stylesheet" href="jquery-ui.css" type="text/css" />
+    
+    <!--<link rel="stylesheet" href="app.css">-->
+      <link rel="stylesheet" href="style.css">
+      
+      <link rel="shortcut icon" href="~/favicon.ico">
+   </head>
+   <body>
+      <div class="logo">
+          <h3>WebRadio <span>By Paul</span></h3>
+      </div>
+      <audio class="player" id="player"  controls preload=""></audio>
+      <div class="channels">
+          <ul id="channelList"></ul>
+      </div>
+      
+      
+      
+      
+                
+         
+        
+      
+      <script src="script.js"></script>
+    <script>webradio.play_station("http://ceol.fm:8000/energetic.m3u");
+    webradio.load_channels();
+        webradio.player().addEventListener("volumechange", function (){
+            webradio.set_value("playervolume", webradio.player().volume);
+        }, false);
+        webradio.player().volume = webradio.get_value("playervolume");
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="jquery.js" charset="utf-8"></script>
+    <script type="text/javascript" src="jquery-ui.js" charset="utf-8"></script>
+    <script src="audiolib.js"></script>
+    <script src="multiband_eq.js"></script>
+     <script src="app.js"></script>
+     <!--<script src="analyser.js"></script>-->
+
+</body>
+</html>

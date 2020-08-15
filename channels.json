@@ -1,0 +1,25 @@
+[
+    {"name": "Traditional Irish Music", "channels": [
+    {"name": "Ceol FM", "url": "http://ceol.fm:8000/energetic.m3u"},
+    {"name": "Ceol FM", "url": "https://listen.ceol.fm:8001/fiddle.mp3"}
+    ]},
+    {"name": "Pop Music", "channels": [
+        {"name": "FM104", "url": "https://gbradio.cdn.tibus.net/fm104AAC64"},
+        {"name": "SPIN1038", "url": "https://edge.audioxi.com/SP"},
+        {"name": "98FM", "url": "https://edge.audioxi.com/98"},
+        {"name": "Kiss FM", "url": "https://daniel.torontocast.com:2985/stream.m3u"},
+        {"name": "Fenomen", "url": "http://cdn-icast.radyofenomen.com/fenomen/fenomenweb/mpeg/256/home"},
+        {"name": "Number One FM", "url": "http://31.210.157.109/rto/numberonefm/icecast.audio"}
+    ]},
+    {"name": "Other", "channels": [
+        {"name": "TheRadio.CC", "url": "http://stream.theradio.cc:8000/trcc-stream.opus"}
+    ]},
+    {"name": "Electronic", "channels": [
+        {"name": "Trancepulse fm", "url": "https://stream.trance.ie:8443/mobile.m3u"},
+        {"name": "SomaFM - Space Station", "url": "http://ice1.somafm.com/spacestation-128-mp3"},
+        {"name": "PHEVER", "url": "http://uk1.internet-radio.com:8200/live.m3u"}
+    ]},
+    {"name": "Classical Music", "channels": [
+        {"name": "Lyric fm", "url": "https://www.rte.ie/manifests/lyric.m3u"}
+    ]}
+]
